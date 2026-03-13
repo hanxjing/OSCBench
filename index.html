@@ -6,7 +6,7 @@
   
   <!-- Primary Meta Tags -->
   <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
+  <meta name="title" content="PAPER_TITLE">
   <!-- TODO: Write a compelling 150-160 character description of your research -->
   <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
   <!-- TODO: Add 5-10 relevant keywords for your research area -->
@@ -74,7 +74,7 @@
 
 
   <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
+  <title>OSCBench</title>
 
   
   <!-- Critical CSS - Load synchronously -->
@@ -293,7 +293,7 @@
                     <div class="publication-links">
                          <!-- TODO: Update with your arXiv paper ID -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org/pdf/2603.11698" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -302,20 +302,10 @@
                       </a>
                     </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
 
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://arxiv.org/pdf/2603.11698" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -324,9 +314,19 @@
                   </a>
                 </span>
 
+                      <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2603.11698" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>dataset</span>
+                  </a>
+                  </span>
+
                 <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2603.11698" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
@@ -342,20 +342,25 @@
   </div>
 </section>
 
-
 <!-- Teaser videos -->
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="hero-body">
 
-      <div class="columns is-variable is-2">
+      <!-- Main title -->
+      <h2 class="title is-4 has-text-centered">
+      Current text-to-video (T2V) models generate high-quality videos<br> but still struggle with object state changes.
+      </h2>
 
+
+      <div class="columns is-variable is-2">
         <div class="column is-half has-text-centered">
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/banner_video1.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            1) A woman is slicing an apple
+            Regular scenario: <strong>A woman is slicing an apple</strong> <br>
+            (Discontinuous state changes)
           </p>
         </div>
 
@@ -364,20 +369,20 @@
             <source src="static/videos/banner_video2.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            2) Slicing apple
+            Minimal Prompt: <strong>Slicing apple</strong><br>
+            (Objects appear suddenly)
           </p>
         </div>
-
       </div>
 
       <div class="columns is-variable is-2">
-
         <div class="column is-half has-text-centered">
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/banner_video3.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            3) A chef is sauteing pineapple on the grass
+            Novel scenario: <strong>A chef is sauteing pineapple on the grass</strong><br>
+                        (Objects appear suddenly)
           </p>
         </div>
 
@@ -386,126 +391,215 @@
             <source src="static/videos/banner_video4.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            4) A chef is mincing and sauteing onion in a kitchen
+            Compositional scenario: <strong>A chef is mincing and sauteing onion in a kitchen</strong><br>
+            (Artificial artifacts)
           </p>
         </div>
       </div>
-        <h2 class="subtitle has-text-centered">
-        Examples of object state change failures in current text-to-video models.
-      </h2>
     </div>
   </div>
 </section>
 
-<!-- Paper abstract -->
+    <!-- Why Object State Change Matters -->
 <section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+  <div class="container is-max-widescreen">
+    <div class="columns is-vcentered">
+
+      <!-- Left text -->
+      <div class="column is-6">
+        <h2 class="title is-3">Why Object State Change Matters</h2>
+
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-          Text-to-video (T2V) generation models have made rapid progress in producing visually high-quality and temporally coherent videos. However, existing benchmarks primarily focus on perceptual quality, text–video alignment, or physical plausibility, leaving a critical aspect of action understanding largely unexplored: object state change (OSC) explicitly specified in the text prompt. OSC refers to the transformation of an object’s state induced by an action, such as peeling a potato or slicing a lemon. In this paper, we introduce OSCBench, a benchmark specifically designed to assess OSC performance in T2V models. OSCBench is constructed from instructional cooking data and systematically organizes action–object interactions into regular, novel, and compositional scenarios to probe both in-distribution performance and generalization. We evaluate six representative open-source and proprietary T2V models using both human user study and multimodal large language model (MLLM)–based automatic evaluation. Our results show that, despite strong performance on semantic and scene alignment, current T2V models consistently struggle with accurate and temporally consistent object state changes, especially in novel and compositional settings. These findings position OSC as a key bottleneck in text-to-video generation and establish OSCBench as a diagnostic benchmark for advancing state-aware video generation models.
-          </p>
+          <ul>
+            <li>
+              Object state change (OSC) is common in daily life and indicates <strong>whether a task has been completed</strong>.
+            </li>
+            <li>
+              Existing text-to-video evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but overlook whether the object reaches the intended target state.
+            </li>
+            <li>
+              T2V-generated videos may look plausible but still fail to produce correct and temporally consistent object state changes.
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
 
-
-<!-- framework image -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-
-      <img src="static/images/framework.png"
-           alt="Research result visualization"
-           style="max-width:100%; height:auto;"
-           loading="lazy"/>
-
-      <h2 class="subtitle has-text-centered">
-      Overview of the OSCBench construction and evaluation pipeline. We build unified action and object categories from instructional cooking data via a human-in-the-loop process, and construct regular, novel, and compositional OSC scenarios as text prompts for video generation. The generated videos are evaluated by humans and MLLMs across multiple criteria, and we analyze their correlations to assess automatic evaluation reliability.
-      </h2>
-
-    </div>
-  </div>
-</section>
-<!-- End framework image -->
-
-
-<!-- result image -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-
-      <div class="columns is-centered">
-
-        <div class="column is-half has-text-centered">
-          <img src="static/images/radar.png"
-               alt="OSCBench pipeline"
-               style="max-width:60%; height:auto;"
-               loading="lazy"/>
-          <p class="subtitle">
-            Overview of the OSCBench construction and evaluation pipeline.
-          </p>
-        </div>
-
-        <div class="column is-half has-text-centered">
-          <img src="static/images/bar.png"
-               alt="OSCBench benchmark overview"
-               style="max-width:110%; height:auto;"
-               loading="lazy"/>
-          <p class="subtitle">
-            Structure of OSCBench scenarios including regular, novel, and compositional settings.
-          </p>
-        </div>
-
+      <!-- Right image -->
+      <div class="column is-6 has-text-centered">
+        <img src="static/images/radar_t.png"
+             alt="Radar plot showing the gap between semantic alignment and OSC performance"
+             class="module-image"
+             style="max-width:85%; height:auto;" loading="lazy"/>
       </div>
 
     </div>
   </div>
 </section>
-<!-- End result image -->
+<!-- End Why Object State Change Matters -->
 
 
+<!-- What is OSCBench -->
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <h2 class="title is-3 has-text-centered">What is OSCBench</h2>
+
+    <!-- One-sentence description -->
+    <p class="subtitle has-text-centered">
+      OSCBench evaluates whether T2V models can correctly reason and render action-induced object state changes.
+    </p>
+
+    <!-- Pipeline figure -->
+    <img src="static/images/framework.png"
+         alt="OSCBench construction and evaluation pipeline"
+         class="module-image"
+         loading="lazy">
+    <p class="module-caption">
+      Overview of the OSCBench construction and evaluation pipeline. We build unified action and object categories from instructional cooking data via a human-in-the-loop process, and construct regular, novel, and compositional OSC scenarios as text prompts for video generation. The generated videos are evaluated by humans and MLLMs, and we analyze their correlations to assess automatic evaluation reliability.
+    </p>
 
 
+  </div>
+</section>
+<!-- End What is OSCBench -->
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Example: Slicing leek.</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel01.mp4" type="video/mp4">
-          </video>
+
+<!-- Benchmark Statistics -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+
+    <div class="columns is-vcentered">
+
+      <!-- Left statistics -->
+      <div class="column is-4">
+        <h2 class="title is-3">Benchmark Statistics</h2>
+        <div class="content stats-list">
+          <p><span class="stat-number">20</span> action elements → <span class="stat-number">8</span> action categories</p>
+          <p><span class="stat-number">134</span> object elements → <span class="stat-number">28</span> object categories</p>
+          <p><span class="stat-number">108</span> regular scenarios</p>
+          <p><span class="stat-number">20</span> novel scenarios</p>
+          <p><span class="stat-number">12</span> compositional scenarios</p>
+          <p>Each scenario contains <span class="stat-number">8</span> action–object pairs</p>
+          <p><span class="stat-number">1,120</span> prompts overall</p>
         </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel03.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video5">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video5" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
+      </div>
+
+      <!-- Right image -->
+      <div class="column is-8 has-text-centered">
+
+        <img src="static/images/intro_a.png"
+             alt="Benchmark statistics visualization"
+             class="module-image"
+             loading="lazy">
+        <p class="module-caption">
+          Example prompts and failure cases from regular, novel, and compositional OSC scenarios.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- End Benchmark Statistics -->
+
+    <!-- Main Results -->
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Main Results</h2>
+
+    <!-- Two images side by side -->
+    <div class="columns is-centered">
+
+      <div class="column is-7 has-text-centered">
+        <img src="static/images/bar.png"
+             alt="Main result figure 1"
+             class="module-image"
+             loading="lazy">
+        <p class="module-caption">
+          Overall performance of T2V models from human and MLLM-based evaluators.
+        </p>
+      </div>
+
+      <div class="column is-5 has-text-centered">
+        <img src="static/images/bar_action_p.png"
+             alt="Main result figure 2"
+             class="module-image"
+             loading="lazy">
+        <p class="module-caption">
+          OSC performance across action categories by human evaluation.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Table image below -->
+<div class="columns is-centered">
+  <div class="column is-12 has-text-centered">
+    <img src="static/images/tables.jpg"
+         alt="Main results table"
+         class="module-image wide-table-image"
+         loading="lazy">
+  </div>
+</div>
+
+  </div>
+</section>
+<!-- End Main Results -->
+
+    <!-- Failure Gallery -->
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Interesting Results</h2>
+
+    <div class="columns is-variable is-2">
+        <div class="column is-half has-text-centered">
+          <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/carousel05.mp4" type="video/mp4">
           </video>
+          <p class="video-prompt">
+            Regular scenario: A chef is slicing leek at a street food stand <br>
+            (Artificial artifacts)
+          </p>
+        </div>
+
+        <div class="column is-half has-text-centered">
+          <video autoplay muted loop playsinline width="100%">
+            <source src="static/videos/Peeling_zucchini.mp4" type="video/mp4">
+          </video>
+          <p class="video-prompt">
+            Regular scenario (minimal prompt): Peeling zucchini <br>
+            (Artificial artifacts)
+          </p>
         </div>
       </div>
+
+      <div class="columns is-variable is-2">
+        <div class="column is-half has-text-centered">
+          <video autoplay muted loop playsinline width="100%">
+            <source src="static/videos/A_woman_is_zesting_grapefruit_in_the_kitchen.mp4" type="video/mp4">
+          </video>
+          <p class="video-prompt">
+            Novel scenario: A woman is zesting grapefruit in the kitchen<br>
+                        (memorization rather than understanding)
+          </p>
+        </div>
+
+        <div class="column is-half has-text-centered">
+          <video autoplay muted loop playsinline width="100%">
+            <source src="static/videos/A_robot_with_robotic_hands_is_mincing_and_sauteing_ginger_in_the_kitchen.mp4" type="video/mp4">
+          </video>
+          <p class="video-prompt">
+            Compositional scenario: A robot with robotic hands is mincing and sauteing ginger in the kitchen<br>
+            (Only one state change)
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-<!-- End video carousel -->
+<!-- End Failure Gallery -->
 
 
 
@@ -524,7 +618,7 @@
   title={OSCBench: Benchmarking Object State Change in Text-to-Video Generation},
   author={Han, Xianjing and Zhu, Bin and Hu, Shiqi and Li, Mingzhe Franklin and Carrington, Patrick and Zimmermann, Roger and Chen, Jingjing},
   year={2026},
-  url={https://XXX}
+  url={https://arxiv.org/abs/2603.11698}
 }</code></pre>
     </div>
 </section>
