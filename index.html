@@ -315,7 +315,7 @@
                 </span>
 
                       <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2603.11698" target="_blank"
+                  <a href="https://huggingface.co/datasets/XianjingHan/OSCBench_Dataset" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fas fa-database"></i>
@@ -348,8 +348,8 @@
     <div class="hero-body">
 
       <!-- Main title -->
-      <h2 class="title is-4 has-text-centered">
-      Current text-to-video (T2V) models generate high-quality videos<br> but still struggle with object state changes.
+      <h2 class="title is-4 has-text-centered" style="line-height:1.6;">
+      Current text-to-video (T2V) models generate visually impressive videos <br> but still struggle with <span class="has-text-link">object state changes</span>
       </h2>
 
 
@@ -358,7 +358,7 @@
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/banner_video1.mp4" type="video/mp4">
           </video>
-          <p class="video-prompt">
+          <p class="module-caption">
             Regular scenario: <strong>A woman is slicing an apple</strong> <br>
             (Discontinuous state changes)
           </p>
@@ -368,7 +368,7 @@
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/banner_video2.mp4" type="video/mp4">
           </video>
-          <p class="video-prompt">
+          <p class="module-caption">
             Minimal Prompt: <strong>Slicing apple</strong><br>
             (Objects appear suddenly)
           </p>
@@ -380,7 +380,7 @@
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/banner_video3.mp4" type="video/mp4">
           </video>
-          <p class="video-prompt">
+          <p class="module-caption">
             Novel scenario: <strong>A chef is sauteing pineapple on the grass</strong><br>
                         (Objects appear suddenly)
           </p>
@@ -390,7 +390,7 @@
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/banner_video4.mp4" type="video/mp4">
           </video>
-          <p class="video-prompt">
+          <p class="module-caption">
             Compositional scenario: <strong>A chef is mincing and sauteing onion in a kitchen</strong><br>
             (Artificial artifacts)
           </p>
@@ -406,19 +406,19 @@
     <div class="columns is-vcentered">
 
       <!-- Left text -->
-      <div class="column is-6">
-        <h2 class="title is-3">Why Object State Change Matters</h2>
+      <div class="column is-7">
+        <h2 class="title is-3">Object State Change in T2V Generation</h2>
 
-        <div class="content has-text-justified">
+        <div class="content has-text-justified" style="font-size:1.2rem;">
           <ul>
             <li>
               Object state change (OSC) is common in daily life and indicates <strong>whether a task has been completed</strong>.
             </li>
             <li>
-              Existing text-to-video evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but overlook whether the object reaches the intended target state.
+              Existing T2V evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but <strong>overlook whether the object reaches the action-induced state</strong>.
             </li>
             <li>
-              T2V-generated videos may look plausible but still fail to produce correct and temporally consistent object state changes.
+              T2V-generated videos may look plausible but still <strong>fail to produce correct and temporally consistent object state changes</strong> (see figure on the right).
             </li>
           </ul>
         </div>
@@ -429,7 +429,10 @@
         <img src="static/images/radar_t.png"
              alt="Radar plot showing the gap between semantic alignment and OSC performance"
              class="module-image"
-             style="max-width:85%; height:auto;" loading="lazy"/>
+             style="max-width:80%; height:auto;" loading="lazy"/>
+        <p class="module-caption">
+          Performance evaluated by human.
+        </p>
       </div>
 
     </div>
@@ -442,12 +445,7 @@
 <section class="section">
   <div class="container is-max-widescreen">
 
-    <h2 class="title is-3 has-text-centered">What is OSCBench</h2>
-
-    <!-- One-sentence description -->
-    <p class="subtitle has-text-centered">
-      OSCBench evaluates whether T2V models can correctly reason and render action-induced object state changes.
-    </p>
+    <h2 class="title is-3 has-text-centered">Overview of OSCBench</h2>
 
     <!-- Pipeline figure -->
     <img src="static/images/framework.png"
@@ -455,7 +453,7 @@
          class="module-image"
          loading="lazy">
     <p class="module-caption">
-      Overview of the OSCBench construction and evaluation pipeline. We build unified action and object categories from instructional cooking data via a human-in-the-loop process, and construct regular, novel, and compositional OSC scenarios as text prompts for video generation. The generated videos are evaluated by humans and MLLMs, and we analyze their correlations to assess automatic evaluation reliability.
+      Overview of the OSCBench. We build unified action and object categories from instructional cooking data via a human-in-the-loop process, and construct regular, novel, and compositional OSC scenarios as text prompts for video generation. The generated videos are evaluated by humans and MLLMs, and we analyze their correlations to assess automatic evaluation reliability.
     </p>
 
 
@@ -509,9 +507,12 @@
     <h2 class="title is-3 has-text-centered">Main Results</h2>
 
     <!-- Two images side by side -->
+    <h2 class="title is-4 has-text-centered" style="line-height:1.6;">
+      Overall Performance of T2V Models
+      </h2>
     <div class="columns is-centered">
 
-      <div class="column is-7 has-text-centered">
+      <div class="column is-8 has-text-centered">
         <img src="static/images/bar.png"
              alt="Main result figure 1"
              class="module-image"
@@ -521,27 +522,69 @@
         </p>
       </div>
 
-      <div class="column is-5 has-text-centered">
-        <img src="static/images/bar_action_p.png"
+      <div class="column is-4 has-text-centered">
+        <img src="static/images/radar_mllm.png"
              alt="Main result figure 2"
              class="module-image"
              loading="lazy">
         <p class="module-caption">
-          OSC performance across action categories by human evaluation.
+          Performance of different evaluation dimension by GPT-5.2.
         </p>
       </div>
 
     </div>
 
-    <!-- Table image below -->
-<div class="columns is-centered">
-  <div class="column is-12 has-text-centered">
-    <img src="static/images/tables.jpg"
+    <br>
+    <h2 class="title is-4 has-text-centered" style="line-height:1.6;">
+      Performance of Different Scenarios
+      </h2>
+
+    <div class="columns is-centered">
+      <div class="column is-12 has-text-centered">
+      <img src="static/images/regular_novel_complex.png"
          alt="Main results table"
          class="module-image wide-table-image"
          loading="lazy">
+      <p class="module-caption">
+      Regular scenarios achieve the highest OSC performance, while novel scenarios show the most severe degradation. Compositional scenarios perform better than novel ones.
+      </p>
+      </div>
+    </div>
+
+     <br>
+    <h2 class="title is-4 has-text-centered" style="line-height:1.6;">
+      OSC Performance of Different Actions
+      </h2>
+    <div class="container is-max-widescreen">
+    <div class="columns is-vcentered">
+
+      <!-- Left text -->
+      <div class="column is-5">
+        <div class="content has-text-justified" style="font-size:1.2rem;">
+          <ul>
+            <li>
+              Models perform well on simple actions with clear and visually salient state changes, such as rolling and heating.
+            </li>
+            <li>
+              Performance drops on actions involving complex hand–object interactions or subtle visual changes, such as peeling, coating, and pressing.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right image -->
+      <div class="column is-7 has-text-centered">
+        <img src="static/images/bar_action_p.png"
+             alt="Radar plot showing the gap between semantic alignment and OSC performance"
+             class="module-image"
+             style="max-width:85%; height:auto;" loading="lazy"/>
+        <p class="module-caption">
+          OSC Performance of different actions evaluated by human.
+        </p>
+      </div>
+
+    </div>
   </div>
-</div>
 
   </div>
 </section>
@@ -552,13 +595,13 @@
   <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-centered">Interesting Results</h2>
 
-    <div class="columns is-variable is-2">
+    <div class="columns is-variable is-2">å
         <div class="column is-half has-text-centered">
           <video autoplay muted loop playsinline width="100%">
             <source src="static/videos/carousel05.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            Regular scenario: A chef is slicing leek at a street food stand <br>
+            Regular scenario: <strong>A chef is slicing leek at a street food stand</strong> <br>
             (Artificial artifacts)
           </p>
         </div>
@@ -568,7 +611,7 @@
             <source src="static/videos/Peeling_zucchini.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            Regular scenario (minimal prompt): Peeling zucchini <br>
+            Regular scenario (minimal prompt): <strong>Peeling zucchini</strong> <br>
             (Artificial artifacts)
           </p>
         </div>
@@ -580,7 +623,7 @@
             <source src="static/videos/A_woman_is_zesting_grapefruit_in_the_kitchen.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            Novel scenario: A woman is zesting grapefruit in the kitchen<br>
+            Novel scenario: <strong>A woman is zesting grapefruit in the kitchen</strong><br>
                         (memorization rather than understanding)
           </p>
         </div>
@@ -590,7 +633,7 @@
             <source src="static/videos/A_robot_with_robotic_hands_is_mincing_and_sauteing_ginger_in_the_kitchen.mp4" type="video/mp4">
           </video>
           <p class="video-prompt">
-            Compositional scenario: A robot with robotic hands is mincing and sauteing ginger in the kitchen<br>
+            Compositional scenario: <strong>A robot with robotic hands is mincing and sauteing ginger in the kitchen</strong><br>
             (Only one state change)
           </p>
         </div>
