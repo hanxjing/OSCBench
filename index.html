@@ -383,52 +383,41 @@
 
     <!-- Why Object State Change Matters -->
 <section class="section hero is-light">
-  <div class="container is-max-widescreen">
-    <div class="columns is-vcentered">
-
-      <!-- Left text -->
-      <div class="column is-7">
-        <h2 class="title is-3">Object State Change in T2V Generation</h2>
-
-        <div class="content has-text-justified" style="font-size:1.2rem;">
-          <ul>
-            <li>
-              Object state change (OSC) is common in daily life and indicates <strong>whether a task has been completed</strong>.
-            </li>
-            <li>
-              Existing T2V evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but <strong>overlook whether the object reaches the action-induced state</strong>.
-            </li>
-            <li>
-              T2V-generated videos may look plausible but still <strong>fail to produce correct and temporally consistent object state changes</strong> (see figure on the right).
-            </li>
-          </ul>
-        </div>
+  <div class="columns is-vcentered">
+    <!-- Left text - 占7份宽度 -->
+    <div class="column is-7">
+      <h2 class="title is-3">Object State Change in T2V Generation</h2>
+      <div class="content has-text-justified" style="font-size:1.2rem;">
+        <ul>
+          <li>Object state change (OSC) is common in daily life and indicates <strong>whether a task has been completed</strong>.</li>
+          <li>Existing T2V evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but <strong>overlook whether the object reaches the action-induced state</strong>.</li>
+          <li>T2V-generated videos may look plausible but still <strong>fail to produce correct and temporally consistent object state changes</strong> (see figure on the right).</li>
+        </ul>
       </div>
-
-      <!-- Right images (stacked vertically) -->
-      <div class="column is-6">
-        <!-- Top image: Action taxonomy -->
-        <div class="has-text-centered" style="margin-bottom: 2rem;">
-          <img src="static/images/action.png"
-               alt="Action taxonomy diagram"
-               class="module-image"
-               style="max-width:80%; height:auto;" loading="lazy"/>
-          <p class="module-caption">
-            Action taxonomy.
-          </p>
-        </div>
-        <!-- Bottom image: Performance evaluated by human -->
-        <div class="has-text-centered">
-          <img src="static/images/radar_t.png"
-               alt="Radar plot showing the gap between semantic alignment and OSC performance"
-               class="module-image"
-               style="max-width:80%; height:auto;" loading="lazy"/>
-          <p class="module-caption">
-            Performance evaluated by human.
-          </p>
-        </div>
+    </div>
+  
+    <!-- Right images - 占5份宽度 -->
+    <div class="column is-5">
+      <!-- Top image: Action taxonomy -->
+      <div class="has-text-centered" style="margin-bottom: 1.5rem;">
+        <img src="static/images/action.png"
+             alt="Action taxonomy diagram"
+             class="module-image"
+             style="max-width:80%; height:auto; border: 1px solid #f5f5f5; border-radius: 4px;" loading="lazy"/>
+        <p class="module-caption">
+          Action taxonomy.
+        </p>
       </div>
-
+      <!-- Bottom image: Performance evaluated by human -->
+      <div class="has-text-centered">
+        <img src="static/images/radar_t.png"
+             alt="Radar plot showing the gap between semantic alignment and OSC performance"
+             class="module-image"
+             style="max-width:80%; height:auto;" loading="lazy"/>
+        <p class="module-caption">
+          Performance evaluated by human.
+        </p>
+      </div>
     </div>
   </div>
 </section>
