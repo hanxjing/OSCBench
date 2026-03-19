@@ -382,42 +382,40 @@
 </section>
 
     <!-- Why Object State Change Matters -->
-<section class="section hero is-light" style="padding-left: 6rem; padding-right: 6rem;">
-  <div class="columns is-vcentered">
-    <!-- Left text - 占5份宽度 -->
-    <div class="column is-5">
-      <h2 class="title is-3">Object State Change in T2V Generation</h2>
-      <div class="content has-text-justified" style="font-size:1.2rem;">
-        <ul>
-          <li>Object state change (OSC) is common in daily life and indicates <strong>whether a task has been completed</strong>.</li>
-          <li>Existing T2V evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but <strong>overlook whether the object reaches the action-induced state</strong>.</li>
-          <li>T2V-generated videos may look plausible but still <strong>fail to produce correct and temporally consistent object state changes</strong> (see figure on the right).</li>
-        </ul>
-      </div>
-    </div>
-  
-    <!-- Right images - 占7份宽度，内部左右并排，底部对齐 -->
-    <div class="column is-7">
-      <div class="columns is-variable is-2" style="height: 100%;"> <!-- 确保内部列等高 -->
-        <!-- 左侧图片：Action taxonomy (透明背景，无边框) -->
-        <div class="column has-text-centered" style="display: flex; flex-direction: column;">
-          <img src="static/images/action_t.png"
-               alt="Action taxonomy diagram"
-               class="module-image"
-               style="flex: 1; width: 100%; object-fit: contain;"
-               loading="lazy"/>
-          <p class="module-caption" style="flex-shrink: 0; margin-top: 0.5rem;">Action taxonomy.</p>
-        </div>
-        <!-- 右侧图片：Performance evaluated by human -->
-        <div class="column has-text-centered" style="display: flex; flex-direction: column;">
-          <img src="static/images/radar_t.png"
-               alt="Radar plot showing the gap between semantic alignment and OSC performance"
-               class="module-image"
-               style="flex: 1; width: 100%; object-fit: contain;"
-               loading="lazy"/>
-          <p class="module-caption" style="flex-shrink: 0; margin-top: 0.5rem;">Performance evaluated by human.</p>
+<section class="section hero is-light">
+  <div class="container is-max-widescreen">
+    <div class="columns is-vcentered">
+
+      <!-- Left text -->
+      <div class="column is-7">
+        <h2 class="title is-3">Object State Change in T2V Generation</h2>
+
+        <div class="content has-text-justified" style="font-size:1.2rem;">
+          <ul>
+            <li>
+              Object state change (OSC) is common in daily life and indicates <strong>whether a task has been completed</strong>.
+            </li>
+            <li>
+              Existing T2V evaluations mainly focus on semantic alignment, visual quality and physical plausibility, but <strong>overlook whether the object reaches the action-induced state</strong>.
+            </li>
+            <li>
+              T2V-generated videos may look plausible but still <strong>fail to produce correct and temporally consistent object state changes</strong> (see figure on the right).
+            </li>
+          </ul>
         </div>
       </div>
+
+      <!-- Right image -->
+      <div class="column is-6 has-text-centered">
+        <img src="static/images/radar_t.png"
+             alt="Radar plot showing the gap between semantic alignment and OSC performance"
+             class="module-image"
+             style="max-width:80%; height:auto;" loading="lazy"/>
+        <p class="module-caption">
+          Performance evaluated by human.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -451,31 +449,49 @@
 
     <div class="columns is-vcentered">
 
-      <!-- Left statistics -->
-      <div class="column is-4">
-        <h2 class="title is-3">Benchmark Statistics</h2>
-        <div class="content stats-list">
-          <p><span class="stat-number">20</span> action elements → <span class="stat-number">8</span> action categories</p>
-          <p><span class="stat-number">134</span> object elements → <span class="stat-number">28</span> object categories</p>
-          <p><span class="stat-number">108</span> regular scenarios</p>
-          <p><span class="stat-number">20</span> novel scenarios</p>
-          <p><span class="stat-number">12</span> compositional scenarios</p>
-          <p>Each scenario contains <span class="stat-number">8</span> action–object pairs</p>
-          <p><span class="stat-number">1,120</span> prompts overall</p>
+      <div class="columns">
+        <!-- Left column: statistics (unchanged) -->
+        <div class="column is-4">
+          <h2 class="title is-3">Benchmark Statistics</h2>
+          <div class="content stats-list">
+            <p><span class="stat-number">20</span> action elements → <span class="stat-number">8</span> action categories</p>
+            <p><span class="stat-number">134</span> object elements → <span class="stat-number">28</span> object categories</p>
+            <p><span class="stat-number">108</span> regular scenarios</p>
+            <p><span class="stat-number">20</span> novel scenarios</p>
+            <p><span class="stat-number">12</span> compositional scenarios</p>
+            <p>Each scenario contains <span class="stat-number">8</span> action–object pairs</p>
+            <p><span class="stat-number">1,120</span> prompts overall</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Right image -->
-      <div class="column is-8 has-text-centered">
-
-        <img src="static/images/intro_a.png"
-             alt="Benchmark statistics visualization"
-             class="module-image"
-             loading="lazy">
-        <p class="module-caption">
-          Example prompts and failure cases from regular, novel, and compositional OSC scenarios.
-        </p>
-
+      
+        <!-- Right column: split into two columns for images -->
+        <div class="column is-8">
+          <div class="columns">
+            <!-- Left image: action taxonomy (width 3) -->
+            <div class="column is-3 has-text-centered">
+              <img src="static/images/action_t.png"
+                   alt="Action taxonomy diagram"
+                   class="module-image"
+                   style="max-width: 100%; height: auto;"
+                   loading="lazy">
+              <p class="module-caption">
+                Action taxonomy.<br>
+                8 categories, 20 subcategories
+              </p>
+            </div>
+            <!-- Right image: example prompts (width 5) -->
+            <div class="column is-5 has-text-centered">
+              <img src="static/images/prompt.png"
+                   alt="Benchmark statistics visualization"
+                   class="module-image"
+                   style="max-width: 100%; height: auto;"
+                   loading="lazy">
+              <p class="module-caption">
+                Example prompts and failure cases from regular, novel, and compositional OSC scenarios.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
